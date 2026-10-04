@@ -1,0 +1,4 @@
+*.env
+*.pass
+AdGuardHome.yaml
+secretos/
