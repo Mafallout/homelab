@@ -2,3 +2,6 @@
 *.pass
 AdGuardHome.yaml
 secretos/
+*.key
+*.pem
+.env*
