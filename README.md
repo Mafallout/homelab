@@ -12,7 +12,7 @@ HP EliteDesk 800 G4 Mini (i5-8500T, 16 GB, NVMe de 1 TB) y un switch Netgear GS3
 - Antes de fiarme de él: memtest con 12 pasadas sin errores, SMART limpio y Secure Boot activado.
 - SSH con llave FIDO2, en dos YubiKey por si pierdo una. Sin contraseña y sin login de root. El móvil tiene su propia clave, que solo vale desde casa o por Tailscale.
 - Tailscale para entrar desde fuera de casa sin abrir puertos en el router.
-- Cortafuegos con UFW.
+- Cortafuegos con UFW: bloquea todo lo que entra salvo SSH, lo que llega por Tailscale y, solo desde la red de casa, el DNS y el panel de AdGuard.
 - Actualizaciones de seguridad automáticas.
 - Se enciende solo cuando vuelve la luz después de un corte.
 - AdGuard Home como DNS de toda la casa, con listas de bloqueo suaves y las consultas cifradas hacia fuera (DNS sobre HTTPS).
