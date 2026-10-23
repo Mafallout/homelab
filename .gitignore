@@ -3,5 +3,6 @@
 AdGuardHome.yaml
 secretos/
 *.key
+*.crt
 *.pem
 .env*
