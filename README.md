@@ -16,12 +16,16 @@ HP EliteDesk 800 G4 Mini (i5-8500T, 16 GB, NVMe de 1 TB) y un switch Netgear GS3
 - Actualizaciones de seguridad automáticas.
 - Se enciende solo cuando vuelve la luz después de un corte.
 - AdGuard Home como DNS de toda la casa, con listas de bloqueo suaves y las consultas cifradas hacia fuera (DNS sobre HTTPS). El router reparte también 1.1.1.1 de respaldo por si el servidor se cae.
-- DNS cifrado también dentro de casa (DNS sobre TLS), para que los móviles Android lo usen en vez de irse al de Cloudflare.
+- DNS cifrado también dentro de casa (DNS sobre TLS).
 - Un aviso desde fuera: cada 5 minutos el servidor le pregunta a su propio AdGuard y, si no recibe una IP, me salta una alarma en el móvil.
 - Copias diarias cifradas con restic en Cloudflare R2, con otro aviso si una falla. Ya he probado a restaurarlas.
 
+## Lo que he medido
+
+AdGuard da servicio a 16 aparatos de casa. Los móviles Android aceptan su DNS cifrado, pero aun así mandan casi todas sus consultas a 1.1.1.1. Para arreglarlo tendría que quitar el DNS de respaldo, y entonces la casa se quedaría sin internet si se cae el servidor, así que lo dejo así.
+
 ## Siguiente
 
-Pasar un día entero con el servidor apagado para comprobar que la casa sigue con internet, y después Docker.
+Docker con su propio espacio en disco y Uptime Kuma para vigilar cada servicio.
 
 El estado al día y la bitácora de cada sesión están en [jdsantana.com/homelab](https://jdsantana.com/homelab).
