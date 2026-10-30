@@ -19,6 +19,8 @@ HP EliteDesk 800 G4 Mini (i5-8500T, 16 GB, NVMe de 1 TB) y un switch Netgear GS3
 - DNS cifrado también dentro de casa (DNS sobre TLS).
 - Un aviso desde fuera: cada 5 minutos el servidor le pregunta a su propio AdGuard y, si no recibe una IP, me salta una alarma en el móvil.
 - Copias diarias cifradas con restic en Cloudflare R2, con otro aviso si una falla. Ya he probado a restaurarlas.
+- Docker listo para los servicios, con su propio espacio en disco y logs acotados. Detalles en [docs/docker.md](docs/docker.md).
+- Registro del uso de CPU, memoria y disco cada 10 minutos con sysstat.
 
 ## Lo que he medido
 
@@ -26,6 +28,6 @@ AdGuard da servicio a 16 aparatos de casa. Los móviles Android aceptan su DNS c
 
 ## Siguiente
 
-Docker con su propio espacio en disco y Uptime Kuma para vigilar cada servicio.
+Uptime Kuma para vigilar cada servicio y Grafana con un aviso de temperatura.
 
 El estado al día y la bitácora de cada sesión están en [jdsantana.com/homelab](https://jdsantana.com/homelab).
