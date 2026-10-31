@@ -2,7 +2,7 @@
 
 Uptime Kuma comprueba cada minuto que cada servicio responde y, si alguno cae, me avisa por Telegram con un bot mío.
 
-Ahora vigila el DNS de AdGuard (le pregunta por `cloudflare.com` y espera una IP), el panel de AdGuard y Grafana. Cada servicio nuevo entra aquí en cuanto existe.
+Ahora vigila el DNS de AdGuard (le pregunta por `cloudflare.com` y espera una IP), el panel de AdGuard, Grafana y la lista de canales de la tele. Cada servicio nuevo entra aquí en cuanto existe.
 
 Kuma está dentro del servidor, así que si el servidor se apaga no avisa nadie. Para eso está el latido de Healthchecks, que avisa desde fuera si la máquina deja de dar señales.
 

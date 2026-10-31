@@ -1,0 +1,20 @@
+# Canales de la lista Casa. Una línea por canal:
+# número | nombre en la tele | de dónde sale | guía
+#
+# "de dónde sale": opciones separadas por ; en orden de preferencia. Cada opción es
+# el nombre exacto del canal en TDTChannels o un enlace directo que empiece por http.
+# Cada día se prueba cada opción como lo haría la tele y se queda la primera que funcione.
+# "guía" es el código del canal en la guía de TDTChannels. Vacío si no tiene.
+
+1 | La 1 | TDTChannels: La 1 | La1.TV
+2 | La 2 | TDTChannels: La 2 | La2.TV
+3 | 24h | TDTChannels: 24h | 24Horas.TV
+4 | Teledeporte | TDTChannels: Teledeporte GEO; Teledeporte | TDP.TV
+5 | Canal Sur Andalucía | TDTChannels: Canal Sur Andalucía | CanalSurA.TV
+6 | Canal Sur 2 | TDTChannels: Canal Sur 2; Canal Sur 2 Accesible; https://cdnlive.codev8.net/rtvalive/smil:channel22.smil/playlist.m3u8 | CanalSurA.TV
+7 | Canal Sur Más Noticias | TDTChannels: Canal Sur Más Noticias; https://cdnlive.codev8.net/rtvalive/smil:channel42.smil/playlist.m3u8 |
+8 | 7TV Huelva | TDTChannels: 7TV Huelva |
+9 | Huelva Conecta | TDTChannels: Huelva Conecta |
+10 | Teleonuba | TDTChannels: Teleonuba | Teleonuba.TV
+11 | Trece | TDTChannels: TRECE; Trece | 13.TV
+12 | Clan | TDTChannels: Clan GEO; Clan | Clan.TV
