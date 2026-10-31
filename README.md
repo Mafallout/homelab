@@ -22,6 +22,7 @@ HP EliteDesk 800 G4 Mini (i5-8500T, 16 GB, NVMe de 1 TB) y un switch Netgear GS3
 - Docker listo para los servicios, con su propio espacio en disco y logs acotados. Detalles en [docs/docker.md](docs/docker.md).
 - Registro del uso de CPU, memoria y disco cada 10 minutos con sysstat.
 - Uptime Kuma vigila cada servicio y me avisa por Telegram si alguno cae. Detalles en [docs/uptime-kuma.md](docs/uptime-kuma.md).
+- Gráficas del servidor con Prometheus y Grafana, y un aviso al móvil si la CPU pasa de 90 °C. Detalles en [docs/monitorizacion.md](docs/monitorizacion.md).
 
 ## Lo que he medido
 
@@ -29,6 +30,6 @@ AdGuard da servicio a 16 aparatos de casa. Los móviles Android aceptan su DNS c
 
 ## Siguiente
 
-Grafana con un aviso de temperatura y una lista de canales de TDT para la tele.
+Una lista de canales de TDT para la tele y nombres internos con candado.
 
 El estado al día y la bitácora de cada sesión están en [jdsantana.com/homelab](https://jdsantana.com/homelab).
