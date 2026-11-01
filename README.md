@@ -14,7 +14,7 @@ HP EliteDesk 800 G4 Mini (i5-8500T, 16 GB, NVMe de 1 TB) y un switch Netgear GS3
 - Tailscale para entrar desde fuera de casa sin abrir puertos en el router.
 - Cortafuegos con UFW: bloquea todo lo que entra salvo SSH, lo que llega por Tailscale y, solo desde la red de casa, el DNS (normal y cifrado) y el panel de AdGuard.
 - Actualizaciones de seguridad automáticas.
-- Se enciende solo cuando vuelve la luz después de un corte.
+- Se enciende solo cuando vuelve la luz después de un corte, y se reinicia solo si se cuelga (watchdog de la placa).
 - AdGuard Home como DNS de toda la casa, con listas de bloqueo suaves y las consultas cifradas hacia fuera (DNS sobre HTTPS). El router reparte también 1.1.1.1 de respaldo por si el servidor se cae.
 - DNS cifrado también dentro de casa (DNS sobre TLS).
 - Un aviso desde fuera: cada 5 minutos el servidor le pregunta a su propio AdGuard y, si no recibe una IP, me salta una alarma en el móvil. Otro aviso igual salta si se caen Docker o Uptime Kuma, y otro si el disco da señales de fallo.
@@ -22,7 +22,7 @@ HP EliteDesk 800 G4 Mini (i5-8500T, 16 GB, NVMe de 1 TB) y un switch Netgear GS3
 - Docker listo para los servicios, con su propio espacio en disco y logs acotados. Detalles en [docs/docker.md](docs/docker.md).
 - Registro del uso de CPU, memoria y disco cada 10 minutos con sysstat.
 - Uptime Kuma vigila cada servicio y me avisa por Telegram si alguno cae. Detalles en [docs/uptime-kuma.md](docs/uptime-kuma.md).
-- Gráficas del servidor con Prometheus y Grafana, y un aviso al móvil si la CPU pasa de 90 °C. Detalles en [docs/monitorizacion.md](docs/monitorizacion.md).
+- Gráficas del servidor con Prometheus y Grafana, y avisos al móvil si se calienta, si se llena un disco o si se queda sin RAM. Detalles en [docs/monitorizacion.md](docs/monitorizacion.md).
 - Una lista con 12 canales de TDT para la tele, que se prepara sola cada día y no depende del servidor para verse. Detalles en [docs/lista-casa.md](docs/lista-casa.md).
 - Caddy con nombres propios y candado para Uptime Kuma y Grafana, con un certificado comodín de Let's Encrypt. Solo responde por Tailscale. Detalles en [docs/caddy.md](docs/caddy.md).
 
