@@ -6,6 +6,14 @@ Estoy montando un pequeño servidor en casa que protege la red de mi familia. Ya
 
 HP EliteDesk 800 G4 Mini (i5-8500T, 16 GB, NVMe de 1 TB) y un switch Netgear GS308E.
 
+## Cómo está montado
+
+El router de casa reparte dos DNS: el del servidor y 1.1.1.1 de respaldo. Así, si el servidor se apaga, la casa sigue teniendo internet. Lo probé un día entero con el servidor apagado.
+
+En el servidor, AdGuard Home va instalado directamente en Debian, sin Docker, porque es la pieza de la que depende la familia y así arranca aunque Docker falle. Caddy también va en el sistema. Los demás servicios van en contenedores, cada uno con su versión fijada y su límite de memoria. Desde fuera de casa solo se llega por Tailscale: el router no reenvía ningún puerto al servidor.
+
+El esquema de la red y qué puerto se abre a quién están en [docs/red.md](docs/red.md).
+
 ## Qué hay montado
 
 - Debian 13 sin entorno gráfico y con IP fija. Todo lo hago por SSH.
@@ -30,6 +38,14 @@ HP EliteDesk 800 G4 Mini (i5-8500T, 16 GB, NVMe de 1 TB) y un switch Netgear GS3
 ## Lo que he medido
 
 AdGuard da servicio a 16 aparatos de casa. Los móviles Android aceptan su DNS cifrado, pero aun así mandan casi todas sus consultas a 1.1.1.1. Para arreglarlo tendría que quitar el DNS de respaldo, y entonces la casa se quedaría sin internet si se cae el servidor, así que lo dejo así.
+
+## Lo que me ha costado
+
+- Docker se salta UFW: un puerto publicado por un contenedor queda abierto aunque `ufw status` no lo diga. Por eso lo que es solo de casa lo publico en la IP de casa del servidor o en `127.0.0.1`.
+- Docker 29 guardaba las imágenes fuera de su volumen, en el disco del sistema. Lo vi al medir cuánto ocupaba cada sitio y lo moví.
+- El servicio de Caddy de Debian escribía en el log todas sus variables, también el token de Cloudflare. Lo quité y cambié el token.
+- La alerta de temperatura de Grafana apuntaba a un aviso de Telegram que todavía no existía, y Grafana no arrancaba. Primero tiene que existir el aviso y después la alerta.
+- Los días de fútbol la operadora bloquea parte de Cloudflare, y con eso a veces no llegaban ni la lista de canales ni las copias. La lista se prepara de madrugada, y si falla se queda la del día anterior.
 
 ## Siguiente
 
