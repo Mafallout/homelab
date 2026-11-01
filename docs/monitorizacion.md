@@ -15,7 +15,7 @@ Me pasó que la alerta apuntaba a un aviso de Telegram que todavía no había cr
 ## Cómo está montado
 
 - node_exporter y Prometheus solo escuchan en `127.0.0.1`, porque no tienen contraseña.
-- Grafana va en el puerto 3002 (el 3000 es de AdGuard) y solo se llega por Tailscale: UFW no abre ese puerto a casa.
+- Grafana va en el puerto 3002 (el 3000 es de AdGuard) y solo se llega por Tailscale, en `grafana.lab.jdsantana.com`. UFW no abre ese puerto a casa.
 - Versiones exactas fijadas y límites de memoria: 256 MB para Prometheus, 768 MB para Grafana y 64 MB para node_exporter.
 - La configuración y los paneles entran en la copia diaria. Los datos de Prometheus no, porque se vuelven a generar solos.
 - Uptime Kuma comprueba que Grafana responde.

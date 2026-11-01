@@ -5,8 +5,8 @@ En la tele del salón usamos TiviMate, y le he preparado una lista "Casa" con 12
 ## Cómo funciona
 
 1. Los canales están en `canales.txt`, uno por línea: número, nombre, de dónde sale y su guía.
-2. Cada día a las 04:45, el script `lista-casa.py` descarga la lista de [TDTChannels](https://www.tdtchannels.com), busca esos canales y prueba cada enlace como lo haría la tele. Se queda con el primero que funciona.
-3. Un nginx en Docker sirve la lista resultante a la red de casa, y TiviMate la recoge de ahí. La propia lista dice dónde está la guía de TDTChannels, así que TiviMate la carga solo.
+2. Cada día a las 04:45, el script `lista-casa.py` descarga la lista y la guía de [TDTChannels](https://www.tdtchannels.com), busca esos canales y prueba cada enlace como lo haría la tele: que responda y que sea una emisión en directo. Se queda con el primero que funciona.
+3. Un nginx en Docker sirve la lista y la guía a la red de casa, y TiviMate las recoge de ahí. La propia lista dice dónde está la guía, así que TiviMate la carga sola.
 
 El vídeo no pasa por el servidor: los enlaces de la lista van directos a RTVE, Canal Sur y las teles locales. Si el servidor se apaga, TiviMate sigue con la última lista que cargó y los canales siguen funcionando.
 
@@ -19,11 +19,13 @@ El vídeo no pasa por el servidor: los enlaces de la lista van directos a RTVE, 
 ## Si algo falla
 
 - Si un canal no aparece en TDTChannels o ninguno de sus enlaces funciona, se queda el enlace del día anterior y nada desaparece de la tele.
+- Si `canales.txt` tiene un error (vacío, un número o un nombre repetido, o un nombre con coma), el script no publica nada y se queda la lista de ayer.
 - Si el script no termina bien, no avisa a Uptime Kuma, y Kuma me escribe por Telegram al día siguiente. Otro monitor comprueba que la lista se sirve.
-- Los días de fútbol, las operadoras bloquean parte de Cloudflare por orden de LaLiga, y la web de TDTChannels puede no responder. Me pasó un sábado por la tarde. Por eso el script corre a las 04:45, cuando no hay partidos.
+- Los días de fútbol, las operadoras bloquean parte de Cloudflare por orden de LaLiga, y TDTChannels puede no responder. Me pasó un sábado por la tarde. El script corre a las 04:45, cuando no hay partidos, y si falla lo vuelve a intentar cada 20 minutos unas cuantas veces. La guía la sirve el servidor por lo mismo: así la tele no la pide a TDTChannels en mitad de un partido.
 
 ## Cómo está montado
 
 - nginx sin root (`nginx-unprivileged`), con el disco del contenedor en solo lectura y 32 MB de memoria como mucho.
 - El puerto solo se publica en la IP de casa del servidor, así que por Tailscale no responde.
 - El script corre con mi usuario desde un temporizador de systemd, no como root.
+- La lista nueva se escribe aparte y se cambia de golpe, y dos ejecuciones a la vez no se pueden pisar.

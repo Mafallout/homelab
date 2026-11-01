@@ -6,3 +6,4 @@ secretos/
 *.crt
 *.pem
 .env*
+*.url
