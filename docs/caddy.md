@@ -1,6 +1,6 @@
 # Caddy
 
-Caddy recibe las visitas por el puerto 443 y las reparte a cada servicio por su nombre: `kuma.lab.jdsantana.com` va a Uptime Kuma y `grafana.lab.jdsantana.com` a Grafana. Así entro con un nombre y con candado en vez de con IP y puerto.
+Caddy recibe las visitas por el puerto 443 y las reparte a cada servicio por su nombre: `kuma.lab.jdsantana.com` va a Uptime Kuma, `grafana.lab.jdsantana.com` a Grafana y `ha.lab.jdsantana.com` a Home Assistant. Así entro con un nombre y con candado en vez de con IP y puerto.
 
 ## El certificado
 

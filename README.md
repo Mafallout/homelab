@@ -24,7 +24,8 @@ HP EliteDesk 800 G4 Mini (i5-8500T, 16 GB, NVMe de 1 TB) y un switch Netgear GS3
 - Uptime Kuma vigila cada servicio y me avisa por Telegram si alguno cae. Detalles en [docs/uptime-kuma.md](docs/uptime-kuma.md).
 - Gráficas del servidor con Prometheus y Grafana, y avisos al móvil si se calienta, si se llena un disco o si se queda sin RAM. Detalles en [docs/monitorizacion.md](docs/monitorizacion.md).
 - Una lista con 12 canales de TDT para la tele, que se prepara sola cada día y no depende del servidor para verse. Detalles en [docs/lista-casa.md](docs/lista-casa.md).
-- Caddy con nombres propios y candado para Uptime Kuma y Grafana, con un certificado comodín de Let's Encrypt. Solo responde por Tailscale. Detalles en [docs/caddy.md](docs/caddy.md).
+- Caddy con nombres propios y candado para Uptime Kuma, Grafana y Home Assistant, con un certificado comodín de Let's Encrypt. Solo responde por Tailscale. Detalles en [docs/caddy.md](docs/caddy.md).
+- Home Assistant para la domótica de casa, de momento sin aparatos. Detalles en [docs/home-assistant.md](docs/home-assistant.md).
 
 ## Lo que he medido
 
@@ -32,6 +33,6 @@ AdGuard da servicio a 16 aparatos de casa. Los móviles Android aceptan su DNS c
 
 ## Siguiente
 
-El disco de 10 TB para las fotos y las películas, y Home Assistant para las luces de mi cuarto.
+El disco de 10 TB para las fotos y las películas, y las luces de mi cuarto en Home Assistant.
 
 El estado al día y la bitácora de cada sesión están en [jdsantana.com/homelab](https://jdsantana.com/homelab).
