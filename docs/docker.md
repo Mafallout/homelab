@@ -10,6 +10,9 @@ Docker es la base de los servicios del homelab. Cada servicio va en su contenedo
 - Mi usuario no está en el grupo `docker`, porque estar en él es como ser root sin contraseña. Uso `sudo docker`.
 - Logs con el driver `local`, que los rota y los comprime (unos 100 MB por contenedor como mucho). Lo puse antes del primer contenedor porque solo se aplica a los que se crean después.
 - Cada contenedor lleva la versión de la imagen fijada y un límite de memoria, para que nada cambie sin que yo lo decida y ninguno le quite RAM a AdGuard.
+- `no-new-privileges` de serie en todos: un proceso dentro del contenedor no puede ganar permisos con un programa setuid.
+- Las redes nuevas de Docker salen siempre de `10.200.0.0/16`, para que nunca choquen con la de casa.
+- `live-restore`: si Docker se reinicia (por ejemplo, al actualizarse), los contenedores siguen funcionando.
 
 ## Docker se salta UFW
 

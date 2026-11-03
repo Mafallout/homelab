@@ -17,7 +17,8 @@ Me pasó que la alerta apuntaba a un aviso de Telegram que todavía no había cr
 ## Cómo está montado
 
 - node_exporter y Prometheus solo escuchan en `127.0.0.1`, porque no tienen contraseña.
-- Grafana va en el puerto 3002 (el 3000 es de AdGuard) y solo se llega por Tailscale, en `grafana.lab.jdsantana.com`. UFW no abre ese puerto a casa.
+- Grafana va en el puerto 3002 (el 3000 es de AdGuard), solo en `127.0.0.1`. Se entra por Caddy en `grafana.lab.jdsantana.com`, que solo responde por Tailscale.
+- Los tres contenedores sin capacidades de Linux (`cap_drop: ALL`) y con `no-new-privileges`. No les hace falta ninguna.
 - Grafana trae de serie plugins para muchas bases de datos y cada uno arranca su propio proceso. Solo uso Prometheus, así que los demás están desactivados, y Grafana gasta bastante menos RAM.
 - Versiones exactas fijadas y límites de memoria: 256 MB para Prometheus, 768 MB para Grafana y 64 MB para node_exporter.
 - La configuración y los paneles entran en la copia diaria. Los datos de Prometheus no, porque se vuelven a generar solos.

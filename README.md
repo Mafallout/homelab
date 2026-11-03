@@ -18,7 +18,7 @@ El esquema de la red y qué puerto se abre a quién están en [docs/red.md](docs
 
 - Debian 13 sin entorno gráfico y con IP fija. Todo lo hago por SSH.
 - Antes de fiarme de él: memtest con 12 pasadas sin errores, SMART limpio y Secure Boot activado.
-- SSH con llave FIDO2, en dos YubiKey por si pierdo una. Sin contraseña y sin login de root. El móvil tiene su propia clave, que solo vale desde casa o por Tailscale.
+- SSH con llave FIDO2, en dos YubiKey por si pierdo una. Sin contraseña, sin login de root y solo para mi usuario. El móvil tiene su propia clave, que solo vale desde casa o por Tailscale.
 - Tailscale para entrar desde fuera de casa sin abrir puertos en el router.
 - Cortafuegos con UFW: bloquea todo lo que entra salvo SSH, lo que llega por Tailscale y, solo desde la red de casa, el DNS (normal y cifrado) y el panel de AdGuard.
 - Actualizaciones de seguridad automáticas.

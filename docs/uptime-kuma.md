@@ -8,7 +8,7 @@ Kuma está dentro del servidor, así que si el servidor se apaga no avisa nadie.
 
 ## Cómo está montado
 
-- En Docker con `network_mode: host`, para que UFW se aplique. Su puerto solo está abierto por Tailscale y entro por `kuma.lab.jdsantana.com`.
+- En Docker con `network_mode: host`. Escucha solo en `127.0.0.1` y entro por `kuma.lab.jdsantana.com`, con Caddy.
 - Versión exacta fijada (2.5.8). La actualizo yo a mano.
 - Límite de 512 MB de memoria. En reposo usa unos 130 MB.
 - Sin permisos de más: sin `NET_RAW` y con `no-new-privileges`. Sus datos, que llevan el token del bot de Telegram, solo los lee root.
