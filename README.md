@@ -8,7 +8,7 @@ HP EliteDesk 800 G4 Mini (i5-8500T, 16 GB, NVMe de 1 TB) y un switch Netgear GS3
 
 ## Cómo está montado
 
-El router de casa reparte dos DNS: el del servidor y 1.1.1.1 de respaldo. Así, si el servidor se apaga, la casa sigue teniendo internet. Lo probé un día entero con el servidor apagado.
+El router de casa reparte dos DNS: el del servidor y 1.1.1.1 de respaldo. Así, si el servidor se apaga, la casa sigue teniendo internet. Lo he probado apagando el servidor algunos ratos.
 
 En el servidor, AdGuard Home va instalado directamente en Debian, sin Docker, porque es la pieza de la que depende la familia y así arranca aunque Docker falle. Caddy también va en el sistema. Los demás servicios van en contenedores, cada uno con su versión fijada y su límite de memoria. Desde fuera de casa solo se llega por Tailscale: el router no reenvía ningún puerto al servidor.
 
