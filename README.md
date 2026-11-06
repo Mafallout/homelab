@@ -29,6 +29,7 @@ El esquema de la red y qué puerto se abre a quién están en [docs/red.md](docs
 - Copias diarias cifradas con restic en Cloudflare R2, con otro aviso si una falla. Ya he probado a restaurarlas.
 - Docker listo para los servicios, con su propio espacio en disco y logs acotados. Detalles en [docs/docker.md](docs/docker.md).
 - Registro del uso de CPU, memoria y disco cada 10 minutos con sysstat.
+- La CPU va sin turbo y, de 23:30 a 8:30, a media velocidad, para que el ventilador no se oiga de noche. Con un núcleo al máximo se queda en 43 °C en vez de 51 °C.
 - Uptime Kuma vigila cada servicio y me avisa por Telegram si alguno cae. Detalles en [docs/uptime-kuma.md](docs/uptime-kuma.md).
 - Gráficas del servidor con Prometheus y Grafana, y avisos al móvil si se calienta, si se llena un disco o si se queda sin RAM. Detalles en [docs/monitorizacion.md](docs/monitorizacion.md).
 - Una lista con 12 canales de TDT para la tele, que se prepara sola cada día y no depende del servidor para verse. Detalles en [docs/lista-casa.md](docs/lista-casa.md).
