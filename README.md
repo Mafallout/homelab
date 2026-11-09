@@ -4,7 +4,7 @@ Estoy montando un pequeño servidor en casa que protege la red de mi familia. Ya
 
 ## Hardware
 
-HP EliteDesk 800 G4 Mini (i5-8500T, 16 GB, NVMe de 1 TB) y un switch Netgear GS308E.
+HP EliteDesk 800 G4 Mini (i5-8500T, 16 GB, NVMe de 1 TB), un disco WD Gold de 10 TB en una caja USB y un switch Netgear GS308E.
 
 ## Cómo está montado
 
@@ -26,7 +26,7 @@ El esquema de la red y qué puerto se abre a quién están en [docs/red.md](docs
 - AdGuard Home como DNS de toda la casa, con listas de bloqueo suaves y las consultas cifradas hacia fuera (DNS sobre HTTPS). El router reparte también 1.1.1.1 de respaldo por si el servidor se cae.
 - DNS cifrado también dentro de casa (DNS sobre TLS).
 - Un aviso desde fuera: cada 5 minutos el servidor le pregunta a su propio AdGuard y, si no recibe una IP, me salta una alarma en el móvil. Otro aviso igual salta si se caen Docker o Uptime Kuma, y otro si el disco da señales de fallo.
-- Copias diarias cifradas con restic en Cloudflare R2, con otro aviso si una falla. Ya he probado a restaurarlas.
+- Copias diarias cifradas con restic en Cloudflare R2 y en el disco de 10 TB, con otro aviso si una falla. Ya he probado a restaurarlas.
 - Docker listo para los servicios, con su propio espacio en disco y logs acotados. Detalles en [docs/docker.md](docs/docker.md).
 - Registro del uso de CPU, memoria y disco cada 10 minutos con sysstat.
 - La CPU va sin turbo y, de 23:30 a 8:30, a media velocidad, para que el ventilador no se oiga de noche. Con un núcleo al máximo se queda en 43 °C en vez de 51 °C.
@@ -35,6 +35,7 @@ El esquema de la red y qué puerto se abre a quién están en [docs/red.md](docs
 - Una lista con 12 canales de TDT para la tele, que se prepara sola cada día y no depende del servidor para verse. Detalles en [docs/lista-casa.md](docs/lista-casa.md).
 - Caddy con nombres propios y candado para Uptime Kuma, Grafana y Home Assistant, con un certificado comodín de Let's Encrypt. Solo responde por Tailscale. Detalles en [docs/caddy.md](docs/caddy.md).
 - Home Assistant para la domótica de casa, de momento sin aparatos. Detalles en [docs/home-assistant.md](docs/home-assistant.md).
+- El disco de 10 TB para las fotos y las películas, montado de forma que el servidor arranca igual si falta. De noche está parado para que no se oiga. Detalles en [docs/wdgold.md](docs/wdgold.md).
 
 ## Lo que he medido
 
@@ -50,6 +51,6 @@ AdGuard da servicio a 16 aparatos de casa. Los móviles Android aceptan su DNS c
 
 ## Siguiente
 
-El disco de 10 TB para las fotos y las películas, y las luces de mi cuarto en Home Assistant.
+Immich para las fotos y Jellyfin para las películas, y las luces de mi cuarto en Home Assistant.
 
 El estado al día y la bitácora de cada sesión están en [jdsantana.com/homelab](https://jdsantana.com/homelab).
